@@ -1,0 +1,237 @@
+* {
+    font-family: 'Dosis', sans-serif;
+    color: {{fontColor}};
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+  	text-transform: uppercase;
+  	overflow: visible;
+	text-shadow: 0 0 1px rgba(0, 0, 0, 0.7), 0 0 2px rgba(0, 0, 0, 0.7), 0 0 3px rgba(0, 0, 0, 0.7);
+}
+
+.fadeOutClass{
+    animation: fadeOut 1s;
+    animation-delay:{{fadeoutTime}}s;
+    animation-fill-mode: forwards;
+}
+@keyframes pop-in {
+    0% {
+        width: 0px;
+        height: 0px;
+        background-size: 0px 0px;
+        margin-top: 23px;
+        margin-left: 24px;
+    }
+    50% {
+        width: 0px;
+        height: 0px;
+        background-size: 0px 0px;
+        margin-top: 12px;
+        margin-left: 12px;
+        margin-right: 12px;
+        margin-bottom: 12px
+    }
+    85% {
+        width: 23px;
+        height: 23px;
+        background-size: 23px 23px;
+        margin-top: 1px;
+        margin-left: 2px;
+        margin-right: 0px;
+        margin-bottom: 0px
+    }
+    100% {
+        width: 21px;
+        height: 21px;
+        background-size: 21px 21px;
+        margin-top: 2px;
+        margin-left: 3px;
+    }
+}
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes slide-in {
+    0% {
+        width: 0px;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.event-image {
+    animation: 0.7s pop-in;
+    animation-fill-mode: forwards;
+    mask-size: cover;
+    display: inline-block;
+  	position: absolute;
+}
+
+.event-image.event-cheer {
+    background: url("http://i.imgur.com/TvY3Hue.png") no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.event-image.event-raid {
+  	background: url("http://i.imgur.com/OsyQHEm.png") no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.event-image.event-tip {
+  	background: url("http://i.imgur.com/S28fvFM.png") no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.event-image.event-subgift {
+   	background: url("http://i.imgur.com/xV3uUm5.png") no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.event-image.event-sub-1 {
+   	background: url("http://i.imgur.com/9oNTVfL.png") no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.event-image.event-sub-2 {
+   	background: url("http://i.imgur.com/HreMWMC.png") no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.event-image.event-sub-3 {
+   	background: url("http://i.imgur.com/ut4T0S8.png") no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.event-image.event-sub-6 {
+   	background: url("http://i.imgur.com/99iaDC3.png") no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.event-image.event-sub-9 {
+   	background: url("http://i.imgur.com/5hmSvaa.png") no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.event-image.event-sub-12 {
+   	background: url("http://i.imgur.com/4S6y20i.png") no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.event-image.event-sub-18 {
+   	background: url("http://i.imgur.com/SaGLZc7.png") no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.event-image.event-sub-24 {
+   	background: url("http://i.imgur.com/aW7u9fS.png") no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.event-image.event-sub-30 {
+   	background: url("http://i.imgur.com/1kSS76X.png") no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.event-image.event-sub-36 {
+   	background: url("http://i.imgur.com/XVKPfO1.png") no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.tag {
+    animation: 1.2s fade-in;
+    animation-fill-mode: forwards;
+    margin-left: 26px;
+    margin-top: -3px;
+  	flex-shrink: 0;
+}
+
+.tag.event-tip {
+    color: rgb(72,163,78);
+}
+
+.tag.event-subgift {
+    color: rgb(51,158,254);
+}
+
+.tag.event-cheer {
+    color: rgb(153,87,217);
+}
+
+.tag.event-raid {
+    color: rgb(255,181,106);
+}
+
+.tag.event-sub-1 {
+	color: rgb(255,46,89);
+}
+.tag.event-sub-2 {
+	color: rgb(255,128,69);
+}
+.tag.event-sub-3 {
+	color: rgb(103,209,105);
+}
+.tag.event-sub-6 {
+	color: rgb(255,225,79);
+}
+.tag.event-sub-9 {
+	color: rgb(170,46,255);
+}
+.tag.event-sub-12 {
+	color: rgb(71,158,230);
+}
+.tag.event-sub-18 {
+	color: rgb(254,141,115);
+}
+.tag.event-sub-24 {
+	color: rgb(111,36,128);
+}
+.tag.event-sub-30 {
+	color: rgb(175,178,204);
+}
+.tag.event-sub-36 {
+	color: rgb(84,249,194);
+}
+
+.event-container {
+    background-color: {{backgroundColor}};
+    animation: 0.6s slide-in;
+    animation-fill-mode: forwards;
+  	display: flex;
+}
+
+.backgroundsvg{
+    background: url(https://s3.amazonaws.com/cdn.streamelements.com/static/event-list/patterns/{{theme}}.svg);
+    background-size: 100px;
+    width:100%;
+    opacity:calc({{backgroundOpacity}}/100);
+    position:relative;
+    z-index:0;
+}
+
+.details-container {
+    animation: 1.2s fade-in;
+    animation-fill-mode: forwards;
+    font-weight: 700;
+  	margin-top: -3px;
+  	margin-left: 5px;
+  	flex-shrink: 0;
+}

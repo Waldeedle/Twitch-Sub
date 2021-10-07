@@ -1,0 +1,257 @@
+/* dosis-500 - latin */
+@font-face {
+    font-family: 'Dosis';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''),
+         url('fonts/dosis-v18-latin-700.woff2') format('woff2'),
+         url('fonts/dosis-v18-latin-700.woff') format('woff');
+  }
+  
+body {
+    width: max-content;
+    margin: 0px;
+    font-family: Dosis;
+    font-weight: 700;
+    font-size: 15px;
+    color: #FFFFFF;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.7), 0 0 2px rgba(0, 0, 0, 0.7), 0 0 3px rgba(0, 0, 0, 0.7);
+}
+
+.widget-CupTrain {
+    font-size: 20px;
+}
+.widget-CupTrain .background {
+    width: 26px;
+    height: 26px;
+    display: inline-block;
+}
+.widget-CupTrain-subs {
+    display: inline-block;
+}
+.widget-CupTrain-subs > .subs {
+    color: rgb(248,151,72);
+    display: inline-block;
+    width: 43px;
+    position: relative;
+    bottom: 5px;
+}
+.widget-CupTrain-subs > .background {
+    background: url("../img/cupTrain.png") no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.widget-CupTrain-timer {
+    display: inline-block;
+}
+.widget-CupTrain-timer > .timer {
+    position: relative;
+    bottom: 5px;
+}
+
+.widget-CupTrain-timer > .background {
+    background: url("../img/timer.png") no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.widget-EventList {
+    font-weight: 700;
+    font-size: 24px;
+    font-family: Dosis;
+    color: #FFFFFF;
+    overflow: visible;
+    list-style: none;
+    padding: 0;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    height: 153px;
+}
+
+.widget-EventList li {
+    width: 100%;
+    display: block;
+}
+
+@-webkit-keyframes growA {
+    0% {
+        opacity: 0;
+        font-size: 0em;
+        height: 0em;
+        line-height: 0em;
+        margin-bottom: 0px;
+        padding: 0;
+    }
+
+    100% {
+        opacity: 1;
+        font-size: 1em;
+        height: 1.6em;
+        line-height: 1.6em;
+        margin-bottom: 4px;
+        padding: 0 10px;
+    }
+}
+
+
+@keyframes growA {
+    0% {
+        opacity: 0;
+        font-size: 0em;
+        height: 0em;
+        line-height: 0em;
+        margin-bottom: 0px;
+        padding: 0;
+    }
+
+    100% {
+        opacity: 1;
+        font-size: 1em;
+        height: 1.6em;
+        line-height: 1.6em;
+        margin-bottom: 4px;
+        padding: 0 10px;
+    }
+}
+
+@-webkit-keyframes growB {
+    0% {
+        opacity: 1;
+        font-size: 1em;
+        height: 1.6em;
+        line-height: 1.6em;
+    }
+}
+
+@keyframes growB {
+    0% {
+        opacity: 1;
+        font-size: 1em;
+        height: 1.6em;
+        line-height: 1.6em;
+    }
+}
+
+.widget-EventList .message {
+    width: calc(80%);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #FFFFFF;
+}
+
+.widget-EventList li {
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.7), 0 0 2px rgba(0, 0, 0, 0.7), 0 0 3px rgba(0, 0, 0, 0.7);
+}
+
+.widget-EventList .background {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+
+.donation .background {
+    background: url("../img/donation.png") no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.subgift .background {
+    background: url("../img/gift.png") no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.bits .background {
+    background: url("../img/bits.png") no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.raid .background {
+    background: url("../img/raid.png") no-repeat;
+    background-position: center !important; 
+    background-size: contain !important;
+}
+.donation .tag {
+    color: rgb(72,163,78);
+}
+.subgift .tag {
+    color: rgb(51,158,254);
+}
+.bits .tag {
+    color: rgb(153,87,217);
+}
+.raid .tag {
+    color: rgb(255,181,106);
+}
+.subscription-1 .background {
+    background: url("../img/1.png") no-repeat;
+    background-position: center !important; 
+    background-size: contain !important;
+}
+.subscription-1 .tag {
+    color: rgb(255,46,89);
+}
+.subscription-2 .background {
+    background: url("../img/2.png") no-repeat;
+    background-position: center !important; 
+    background-size: contain !important;
+}
+.subscription-2 .tag {
+    color: rgb(255,128,69);
+}
+.subscription-3 .background {
+    background: url("../img/3.png") no-repeat;
+    background-position: center !important; 
+    background-size: contain !important;
+}
+.subscription-3 .tag {
+    color: rgb(103,209,105);
+}
+.subscription-6 .background {
+    background: url("../img/6.png") no-repeat;
+    background-position: center !important; 
+    background-size: contain !important;
+}
+.subscription-6 .tag {
+    color: rgb(255,225,79);
+}
+.subscription-9 .background {
+    background: url("../img/9.png") no-repeat;
+    background-position: center !important; 
+    background-size: contain !important;
+}
+.subscription-9 .tag {
+    color: rgb(170,46,255);
+}
+.subscription-12 .background {
+    background: url("../img/12.png") no-repeat;
+    background-position: center !important; 
+    background-size: contain !important;
+}
+.subscription-12 .tag {
+    color: rgb(71,158,230);
+}
+.subscription-18 .background {
+    background: url("../img/18.png") no-repeat;
+    background-position: center !important; 
+    background-size: contain !important;
+}
+.subscription-18 .tag {
+    color: rgb(254,141,115);
+}
+.subscription-24 .background {
+    background: url("../img/24.png") no-repeat;
+    background-position: center !important; 
+    background-size: contain !important;
+}
+.subscription-24 .tag {
+    color: rgb(111,36,128);
+}
+.subscription-30 .background {
+    background: url("../img/30.png") no-repeat;
+    background-position: center !important; 
+    background-size: contain !important;
+}
+.subscription-30 .tag {
+    color: rgb(175,178,204);
+}

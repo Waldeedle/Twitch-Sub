@@ -1,0 +1,205 @@
+let eventsLimit = 5,
+    userLocale = "en-US",
+    includeFollowers = false,
+    includeRedemptions = false,
+    includeHosts = false,
+    minHost = 0,
+    includeRaids = true,
+    minRaid = 0,
+    includeSubs = true,
+    includeTips = true,
+    minTip = 4,
+    includeCheers = true,
+    minCheer = 100,
+    direction = "top",
+    textOrder = "actionFirst";
+
+let userCurrency,
+    totalEvents = 0;
+
+window.addEventListener('onEventReceived', function (obj) {
+    if (!obj.detail.event) {
+      return;
+    }
+    if (typeof obj.detail.event.itemId !== "undefined") {
+        obj.detail.listener = "redemption-latest"
+    }
+    const listener = obj.detail.listener.split("-")[0];
+    const event = obj.detail.event;
+
+    if (listener === 'follower') {
+        if (includeFollowers) {
+            addEvent('follower', 'Follower', event.name);
+        }
+    } else if (listener === 'redemption') {
+        if (includeRedemptions) {
+            addEvent('redemption', 'Redeemed', event.name);
+        }
+    } else if (listener === 'subscriber') {
+        if (includeSubs) {
+          	if (event.bulkGifted) {
+                addEvent('subgift', `Gifted x${event.amount}`, event.sender, `${event.tier}`);
+            } else if (event.gifted && !event.isCommunityGift) {
+                addEvent('subgift', `Gifted x1`, event.sender, `${event.tier}`);
+            } else if (!event.isCommunityGift) {
+           		var subBadges =  [1,2,3,6,9,12,18,24,30,36];
+              	for (var i = subBadges.length-1; i >= 0; i--) {
+                 	if (event.amount >= subBadges[i]) {
+                     	break;
+                 	}
+              	}
+               	addEvent(`sub-${subBadges[i]}`, (event.amount>1)?`Resub X${event.amount}`:'sub', event.name, `${event.tier}`);
+            }
+        }
+    } else if (listener === 'host') {
+        if (includeHosts && minHost <= event.amount) {
+            addEvent('host', `Host ${event.amount.toLocaleString()}`, event.name);
+        }
+    } else if (listener === 'cheer') {
+        if (includeCheers && minCheer <= event.amount) {
+            addEvent('cheer', `${event.amount.toLocaleString()} bits`, event.name);
+        }
+    } else if (listener === 'tip') {
+        if (includeTips && minTip <= event.amount) {
+            if (event.amount === parseInt(event.amount)) {
+                addEvent('tip', event.amount.toLocaleString(userLocale, {
+                    style: 'currency',
+                    minimumFractionDigits: 0,
+                    currency: userCurrency.code
+                }), event.name);
+            } else {
+                addEvent('tip', event.amount.toLocaleString(userLocale, {
+                    style: 'currency',
+                    currency: userCurrency.code
+                }), event.name);
+            }
+        }
+    } else if (listener === 'raid') {
+        if (includeRaids && minRaid <= event.amount) {
+            addEvent('raid', `Raid x${event.amount.toLocaleString()}`, event.name);
+        }
+    }
+});
+
+window.addEventListener('onWidgetLoad', function (obj) {
+    let recents = obj.detail.recents;
+    recents.sort(function (a, b) {
+        return Date.parse(a.createdAt) - Date.parse(b.createdAt);
+    });
+    userCurrency = obj.detail.currency;
+    const fieldData = obj.detail.fieldData;
+    eventsLimit = fieldData.eventsLimit;
+    includeFollowers = (fieldData.includeFollowers === "yes");
+    includeRedemptions = (fieldData.includeRedemptions === "yes");
+    includeHosts = (fieldData.includeHosts === "yes");
+    minHost = fieldData.minHost;
+    includeRaids = (fieldData.includeRaids === "yes");
+    minRaid = fieldData.minRaid;
+    includeSubs = (fieldData.includeSubs === "yes");
+    includeTips = (fieldData.includeTips === "yes");
+    minTip = fieldData.minTip;
+    includeCheers = (fieldData.includeCheers === "yes");
+    minCheer = fieldData.minCheer;
+    direction = fieldData.direction;
+    userLocale = fieldData.locale;
+    textOrder = fieldData.textOrder;
+    fadeoutTime = fieldData.fadeoutTime;
+
+    let eventIndex;
+    for (eventIndex = 0; eventIndex < recents.length; eventIndex++) {
+        const event = recents[eventIndex];
+
+        if (event.type === 'follower') {
+            if (includeFollowers) {
+                addEvent('follower', 'Follower', event.name);
+            }
+        } else if (event.type === 'redemption') {
+            if (includeRedemptions) {
+                addEvent('redemption', 'Redeemed', event.name);
+            }
+        } else if (event.type === 'subscriber') {
+            if (!includeSubs) continue;
+            if (event.amount === 'gift') {
+                addEvent('subgift', `Sub gift`, event.name, `${event.tier}`);
+            } else {
+              	var subBadges =  [1,2,3,6,9,12,18,24,30,36];
+              	for (var i = subBadges.length-1; i >= 0; i--) {
+                	if (event.amount >= subBadges[i]) {
+                  		break;
+                	}
+              	}
+               	addEvent(`sub-${subBadges[i]}`, (event.amount>1)?`Resub X${event.amount}`:'sub', event.name, `${event.tier}`);
+            }
+        } else if (event.type === 'host') {
+            if (includeHosts && minHost <= event.amount) {
+                addEvent('host', `Host ${event.amount.toLocaleString()}`, event.name);
+            }
+        } else if (event.type === 'cheer') {
+            if (includeCheers && minCheer <= event.amount) {
+                addEvent('cheer', `${event.amount.toLocaleString()} bits`, event.name);
+            }
+        } else if (event.type === 'tip') {
+            if (includeTips && minTip <= event.amount) {
+                if (event.amount === parseInt(event.amount)) {
+                    addEvent('tip', event.amount.toLocaleString(userLocale, {
+                        style: 'currency',
+                        minimumFractionDigits: 0,
+                        currency: userCurrency.code
+                    }), event.name);
+                } else {
+                    addEvent('tip', event.amount.toLocaleString(userLocale, {
+                        style: 'currency',
+                        currency: userCurrency.code
+                    }), event.name);
+                }
+            }
+        } else if (event.type === 'raid') {
+            if (includeRaids && minRaid <= event.amount) {
+                addEvent('raid', `Raided x${event.amount.toLocaleString()}`, event.name);
+            }
+        }
+    }
+});
+
+
+function addEvent(type, text, username, tier = null) {
+    totalEvents += 1;
+    let element;
+    if (textOrder === "actionFirst") {
+        element = `
+    <div class="event-container" id="event-${totalEvents}"><div class="event-image event-${type}"></div><div class="event-${type} tag">${text}</div><div class="details-container">${username}</div>
+    </div>`;
+    } else {
+        element = `
+    <div class="event-container" id="event-${totalEvents}">
+        <div class="event-image event-${type}"></div><div class="details-container">${username}</div><div class="event-${type} tag">${text}</div>
+    </div>`;
+    }
+    if (direction === "bottom") {
+        $('.main-container').removeClass("fadeOutClass").show().append(element);
+    } else {
+        $('.main-container').removeClass("fadeOutClass").show().prepend(element);
+    }
+  	if (tier) {
+    	if (tier === '2000') {
+          	$(`#event-${totalEvents} > .event-image`).css('background','url("http://i.imgur.com/Md79xc0.png") no-repeat, '+$(`#event-${totalEvents} > .event-image`).css('background-image')+' no-repeat');
+        } else if (tier === '3000') {
+        	$(`#event-${totalEvents} > .event-image`).css('background','url("http://i.imgur.com/99i8Jza.png") no-repeat, '+$(`#event-${totalEvents} > .event-image`).css('background-image')+' no-repeat');
+        }
+    }
+    if (fadeoutTime !== 999) {
+        $('.main-container').addClass("fadeOutClass");
+    }
+    if (totalEvents > eventsLimit) {
+        removeEvent(totalEvents - eventsLimit);
+    }
+}
+
+function removeEvent(eventId) {
+    $(`#event-${eventId}`).animate({
+        height: 0,
+        opacity: 0
+    }, 'slow', function () {
+        $(`#event-${eventId}`).remove();
+    });
+}

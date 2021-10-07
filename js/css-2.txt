@@ -1,0 +1,79 @@
+* {
+    font-family: 'Dosis', sans-serif;
+    color: {{fontColor}};
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+  	text-transform: uppercase;
+  	overflow: visible;
+	text-shadow: 0 0 1px rgba(0, 0, 0, 0.7), 0 0 2px rgba(0, 0, 0, 0.7), 0 0 3px rgba(0, 0, 0, 0.7);
+}
+
+@keyframes pop-in {
+    0% {
+        width: 0px;
+        height: 0px;
+        background-size: 0px 0px;
+        margin-top: 23px;
+        margin-left: 24px;
+    }
+    50% {
+        width: 0px;
+        height: 0px;
+        background-size: 0px 0px;
+        margin-top: 12px;
+        margin-left: 12px;
+        margin-right: 12px;
+        margin-bottom: 12px
+    }
+    85% {
+        width: 23px;
+        height: 23px;
+        background-size: 23px 23px;
+        margin-top: 1px;
+        margin-left: 2px;
+        margin-right: 0px;
+        margin-bottom: 0px
+    }
+    100% {
+        width: 21px;
+        height: 21px;
+        background-size: 21px 21px;
+        margin-top: 2px;
+        margin-left: 3px;
+    }
+}
+
+.timer-image {
+    animation: 0.7s pop-in;
+    animation-fill-mode: forwards;
+    mask-size: cover;
+    display: inline-block;
+    background: url("http://i.imgur.com/5UhmFS3.png") no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.subs-image {
+    animation: 0.7s pop-in;
+    animation-fill-mode: forwards;
+    mask-size: cover;
+    display: inline-block;
+    background: url("http://i.imgur.com/CnQEQTD.png") no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.timer {
+    animation: 0.7s pop-in;
+    animation-fill-mode: forwards;
+}
+
+.subs {
+    animation: 0.7s pop-in;
+    animation-fill-mode: forwards;
+}
+
+.widget-CupTrain {
+	display: flex;
+}

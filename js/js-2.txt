@@ -1,0 +1,45 @@
+let subcounter = 0,
+    trainTime = 300; //time is in seconds
+
+var timer = new easytimer.Timer();
+
+window.addEventListener('onEventReceived', function (obj) {
+    if (!obj.detail.event) {
+      return;
+    }
+    if (typeof obj.detail.event.itemId !== "undefined") {
+        obj.detail.listener = "redemption-latest"
+    }
+    const listener = obj.detail.listener.split("-")[0];
+    const event = obj.detail.event;
+
+    if (listener === 'subscriber') {
+      	if (event.bulkGifted) {
+        	cupTrain(event.amount);
+      	} else if (event.gifted && !event.isCommunityGift) {
+        	cupTrain(1);
+      	} else if (!event.isCommunityGift) {
+        	cupTrain(1);
+      	}
+    }
+});
+
+const cupTrain = (numberOfSubs) => {
+	if (timer.isRunning()) {
+		timer.reset();
+	} else {
+		timer.start({countdown: true, startValues: {seconds: trainTime}});
+	}
+	$('.widget-CupTrain-timer > .timer').html(('0'+timer.getTimeValues().minutes).substr(-2)+':'+(timer.getTimeValues().seconds+'0').substr(-2));
+	subcounter = numberOfSubs+subcounter;
+  	$('.widget-CupTrain-subs > .subs').html(subcounter);
+	timer.addEventListener('secondsUpdated', function (e) {
+		$('.widget-CupTrain-timer > .timer').html(('0'+timer.getTimeValues().minutes).substr(-2)+':'+('0'+timer.getTimeValues().seconds).substr(-2));
+	});
+	timer.addEventListener('targetAchieved', function (e) {
+      	subcounter = 0;
+		$('.widget-CupTrain-subs > .subs').html(subcounter);
+		timer.removeEventListener('secondsUpdated');
+		timer.removeEventListener('targetAchieved');
+	});
+};

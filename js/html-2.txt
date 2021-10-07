@@ -1,0 +1,12 @@
+<link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/easytimer.js@4.5.1/dist/easytimer.min.js"></script>
+<div class="widget-CupTrain">
+  	<div class="widget-CupTrain-subs">
+    	<div class="subs-image"></div>
+    	<span class="subs">0</span>
+  	</div>
+ 	<div class="widget-CupTrain-timer">
+    	<div class="timer-image"></div>
+    	<span class="timer">00:00</span>
+  	</div>
+</div>
