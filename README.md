@@ -12,6 +12,7 @@ The last argument is always going to be a dollar amount (no decimals), hence the
 The program checks the first argument for the type of command the user is trying to process. 
 
 The program allows for 3 types of commands: Add, Charge, and Credit.
+
 For Add, the program uses the Luhn 10 validator to check whether or not the credit card being initialized is a valid entry and if it is not returns the string "error". Otherwise a card object is initialized with a balance of $0. It should be noted that this design follows the constraint that a single name will only be used once to add a card, and thus a key-value pair data structure is used. It should be noted that the number has to be input as a string for the Luhn 10 validator.
 
 To allow for multiple cards under a user, a multidimensional array would be appropriate where the next level is the card number ($user[name][cardnumber] => card Object). This would allow for duplicate card numbers but would not allow for users to have the same name (hopefully there is only 1 Tom).
@@ -21,6 +22,7 @@ For Charge, the program will increase the balance of the card belonging to the s
 For Credit, the program will decrease the balance of the card belonging to the specified user as long as the credit card number was a valid per Luhn 10 and it is credited even if the balance would drop below $0 i.e a negative balance is allowed.
 
 After processing all of the input, the program will close the open filestream and send the generated array of users and their card objects to a summary generator function. The function alphabetically sorts the array of users and then starts to generate a string using the given format.
+
 The output starts the string with ```\n and then iterates through the user array. It adds the name of the card holder with a colon and space followed by either their card balance or the string "error" if the card object did not get created due to an invalid card number as per Luhn 10. This is then followed by a new line character. Once the program has iterated through the array of users then the output is returned with a ```\n concatenated at the end.
 
 The unit tests were also relatively straight-forward as the functions and classes were simplistic in nature due to the requirements presented. I would seperate out the test cases by some defined structure for more clarity when navigating the repo, potentially as testCardClass, testNumberProcessing (would make a centralized class for any custom functions to do with numbers), and testSummaryGenerator.
