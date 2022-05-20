@@ -40,8 +40,11 @@ After the card holder name, a space delimiter is placed followed by the the appr
 delimited by spaces.
 
 For the command Add, the arguments are: a credit card number (up to 19 characters) and a credit limit for the card. 
+
 For the command Charge, the argument is: the amount to be charged.
+
 For the command Credit, the argument is: the amount to be credited.
+
 It should be noted that if a credit card number is not a valid luhn 10 number, it will not be created and any charge or credit will not be processed.
 
 An example of a valid input file is shown below:
