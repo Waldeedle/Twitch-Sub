@@ -21,7 +21,7 @@ For Charge, the program will increase the balance of the card belonging to the s
 For Credit, the program will decrease the balance of the card belonging to the specified user as long as the credit card number was a valid per Luhn 10 and it is credited even if the balance would drop below $0 i.e a negative balance is allowed.
 
 After processing all of the input, the program will close the open filestream and send the generated array of users and their card objects to a summary generator function. The function alphabetically sorts the array of users and then starts to generate a string using the given format.
-The output starts the output string with ```\n and then iterates through the user array. It adds the name of the card holder with a colon and space followed by either their card balance or the string "error" if the card object did not get created due to an invalid card number as per Luhn 10. This is then followed by a new line character. Once the program has iterated through the array of users then the output is returned with a ```\n concatenated at the end.
+The output starts the string with ```\n and then iterates through the user array. It adds the name of the card holder with a colon and space followed by either their card balance or the string "error" if the card object did not get created due to an invalid card number as per Luhn 10. This is then followed by a new line character. Once the program has iterated through the array of users then the output is returned with a ```\n concatenated at the end.
 
 The unit tests were also relatively straight-forward as the functions and classes were simplistic in nature due to the requirements presented. I would seperate out the test cases by some defined structure for more clarity when navigating the repo, potentially as testCardClass, testNumberProcessing (would make a centralized class for any custom functions to do with numbers), and testSummaryGenerator.
 
@@ -30,6 +30,7 @@ The program is meant to be run using a terminal.
 
 To run the myprogram.php file, a filename has to be passed as a command line argument as shown below:
   - php myprogram.php YOURFILENAME.txt
+  
 The txt file must follow a specific format and is case sensitive.
 The program allows for 3 types of commands: Add, Charge, and Credit.
 A user must be added with a valid Luhn 10 credit card number prior to using the Charge or Credit commands.
