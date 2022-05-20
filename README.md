@@ -23,13 +23,13 @@ For Credit, the program will decrease the balance of the card belonging to the s
 After processing all of the input, the program will close the open filestream and send the generated array of users and their card objects to a summary generator function. The function alphabetically sorts the array of users and then starts to generate a string using the given format.
 The output starts the output string with ```\n and then iterates through the user array. It adds the name of the card holder with a colon and space followed by either their card balance or the string "error" if the card object did not get created due to an invalid card number as per Luhn 10. This is then followed by a new line character. Once the program has iterated through the array of users then the output is returned with a ```\n concatenated at the end.
 For the example input given below, the output string would be:
-    "```\nLisa: $-93\nQuincy: error\nTom: $500\n```\n"
+```\nLisa: $-93\nQuincy: error\nTom: $500\n```\n
 and would display as 
-    ```
-    Lisa: $-93
-    Quincy: error
-    Tom: $500
-    ```
+```
+Lisa: $-93
+Quincy: error
+Tom: $500
+```
 
 The unit tests were also relatively straight-forward as the functions and classes were simplistic in nature due to the requirements presented. I would seperate out the test cases by some defined structure for more clarity when navigating the repo, potentially as testCardClass, testNumberProcessing (would make a centralized class for any custom functions to do with numbers), and testSummaryGenerator.
 
@@ -50,16 +50,16 @@ For the command Credit, the argument is: the amount to be credited.
 It should be noted that if a credit card number is not a valid luhn 10 number, it will not be created and any charge or credit will not be processed.
 
 An example of a valid input file is shown below:
-    ```
-    Add Tom 4111111111111111 $1000
-    Add Lisa 5454545454545454 $3000
-    Add Quincy 1234567890123456 $2000
-    Charge Tom $500
-    Charge Tom $800
-    Charge Lisa $7
-    Credit Lisa $100
-    Credit Quincy $200
-    ```
+```
+Add Tom 4111111111111111 $1000
+Add Lisa 5454545454545454 $3000
+Add Quincy 1234567890123456 $2000
+Charge Tom $500
+Charge Tom $800
+Charge Lisa $7
+Credit Lisa $100
+Credit Quincy $200
+```
 This will result in the following output:
 ```
 Lisa: $-93
