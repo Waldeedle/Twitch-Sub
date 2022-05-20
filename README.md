@@ -30,13 +30,15 @@ The program is meant to be run using a terminal.
 
 To run the myprogram.php file, a filename has to be passed as a command line argument as shown below:
   - php myprogram.php YOURFILENAME.txt
-  
+
 The txt file must follow a specific format and is case sensitive.
 The program allows for 3 types of commands: Add, Charge, and Credit.
+
 A user must be added with a valid Luhn 10 credit card number prior to using the Charge or Credit commands.
 After the command word, a space delimiter is placed followed by the name of the card holder.
 After the card holder name, a space delimiter is placed followed by the the appropriate arguments
 delimited by spaces.
+
 For the command Add, the arguments are: a credit card number (up to 19 characters) and a credit limit for the card. 
 For the command Charge, the argument is: the amount to be charged.
 For the command Credit, the argument is: the amount to be credited.
