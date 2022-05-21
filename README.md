@@ -10,7 +10,7 @@ The program checks the first argument for the type of command the user is trying
 
 The program allows for 3 types of commands: Add, Charge, and Credit.
 
-1.  For Add, the program uses the Luhn 10 validator to check whether or not the credit card being initialized is a valid entry and if it is not returns the string "error". Otherwise a card object is initialized with a balance of $0. It should be noted that this design follows the constraint that a single name will only be used once to add a card, and thus a key-value pair data structure is used. It should be noted that the number has to be input as a string for the Luhn 10 validator.
+1.  For Add, the program uses the Luhn 10 validator to check whether or not the credit card being initialized is a valid entry and if it is not returns the string "error". Otherwise a card object is initialized with a balance of $0. It should be noted that this design follows the constraint that a single name will only be used once to add a card, and thus a key-value pair data structure is used. It should be noted that the number has to be input as a string for the Luhn 10 validator. A character limit was not placed on the credit card number as it was stated input will all be valid.
 
 To allow for multiple cards under a user, a multidimensional array would be appropriate where the next level is the card number ($user[name][cardnumber] => card Object). This would allow for duplicate card numbers but would not allow for users to have the same name (hopefully there is only 1 Tom).
 
@@ -32,14 +32,8 @@ A filename has to be passed as a command line argument as shown below:
 php myprogram.php YOURFILENAME.txt
 ```
 
-The program allows for 3 types of commands: Add, Charge, and Credit.
+The program allows for 3 types of commands, the format of these commands is explained below:
 
-A user must be added with a valid Luhn 10 credit card number prior to using the Charge or Credit commands.
-After the command word, a space delimiter is placed followed by the name of the card holder.
-After the card holder name, a space delimiter is placed followed by the the appropriate arguments
-delimited by spaces.
-
-For the command Add, the arguments are: a credit card number (up to 19 characters) and a credit limit for the card. 
 1. Add:
 ```
 Add NAME CARD_NUMBER AMOUNT
