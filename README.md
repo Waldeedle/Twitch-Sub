@@ -32,7 +32,6 @@ A filename has to be passed as a command line argument as shown below:
 php myprogram.php YOURFILENAME.txt
 ```
 
-The txt file must follow a specific format and is case sensitive.
 The program allows for 3 types of commands: Add, Charge, and Credit.
 
 A user must be added with a valid Luhn 10 credit card number prior to using the Charge or Credit commands.
@@ -42,11 +41,19 @@ delimited by spaces.
 
 For the command Add, the arguments are: a credit card number (up to 19 characters) and a credit limit for the card. 
 
-For the command Charge, the argument is: the amount to be charged.
+2. Charge:
+```
+Charge NAME AMOUNT
+```
+3. Credit:
+```
+Credit NAME AMOUNT
+```
+the argument is: the amount to be charged.
 
 For the command Credit, the argument is: the amount to be credited.
 
-It should be noted that if a credit card number is not a valid luhn 10 number, it will not be created and any charge or credit will not be processed.
+It should be noted that the program is case sensitive.
 
 An example of a valid input file is shown below:
 ```
