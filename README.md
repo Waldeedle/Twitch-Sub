@@ -27,9 +27,7 @@ The unit tests were also relatively straight-forward as the functions and classe
 ## How to Run Program and Tests
 ### Running myprogram.php
 <details>
-<summary>
-Step 1: Use the terminal
-</summary>
+<summary>Step 1: Use the terminal</summary>
 A filename has to be passed as a command line argument as shown below:
 ```
 php myprogram.php YOURFILENAME.txt
@@ -73,12 +71,14 @@ Quincy: error
 Tom: $500
 ```
 </details>
+
 ### Running PHPUnit tests
 <details>
 <summary>
 Step 1: Use the terminal
 </summary>
 To run the PHPUnit tests in mytest.php file, simply enter the following into the command line:
+
 ```
 phpunit mytest.php
 ```
