@@ -28,7 +28,9 @@ The unit tests were also relatively straight-forward as the functions and classe
 ### Run myprogram.php
 ### *Step 1: Using a terminal*
 A filename has to be passed as a command line argument as shown below:
-```php myprogram.php YOURFILENAME.txt```
+```
+php myprogram.php YOURFILENAME.txt
+```
 
 The txt file must follow a specific format and is case sensitive.
 The program allows for 3 types of commands: Add, Charge, and Credit.
