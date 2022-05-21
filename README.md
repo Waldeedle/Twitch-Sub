@@ -1,6 +1,5 @@
 #  Basic Credit Card Processor
------
-##  An overview of the design
+##  Overview
 The design is very simple due to the constraints presented. No need to suss out edge cases, or look for tricks. It's a very simple programming test. This led to the decision to contain all the functions and classes in the myprogram.php file rather than seperating them as per best practices. 
 
 The script was constrained to run using a terminal and due to this there is no default filename specified or an echo to alert the user when a filename is not provided.
@@ -28,8 +27,8 @@ The unit tests were also relatively straight-forward as the functions and classe
 ## How to run the code and tests
 ### Run myprogram.php
 ### *Step 1: Using a terminal*
-To run the myprogram.php file, a filename has to be passed as a command line argument as shown below:
-  - php myprogram.php YOURFILENAME.txt
+A filename has to be passed as a command line argument as shown below:
+```php myprogram.php YOURFILENAME.txt```
 
 The txt file must follow a specific format and is case sensitive.
 The program allows for 3 types of commands: Add, Charge, and Credit.
