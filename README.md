@@ -26,9 +26,8 @@ The output starts the string with ```\n and then iterates through the user array
 The unit tests were also relatively straight-forward as the functions and classes were simplistic in nature due to the requirements presented. I would seperate out the test cases by some defined structure for more clarity when navigating the repo, potentially as testCardClass, testNumberProcessing (would make a centralized class for any custom functions to do with numbers), and testSummaryGenerator.
 
 ## How to run the code and tests
-### *Running myprogram.php*
-The program is meant to be run using a terminal.
-
+### Run myprogram.php
+### *Step 1: Using a terminal*
 To run the myprogram.php file, a filename has to be passed as a command line argument as shown below:
   - php myprogram.php YOURFILENAME.txt
 
@@ -65,6 +64,7 @@ Lisa: $-93
 Quincy: error
 Tom: $500
 ```
-
+### PHPUnit tests
+### *Step 1: Using a terminal*
 To run the PHPUnit tests in mytest.php file, simply enter the following into the command line:
   - phpunit mytest.php
