@@ -1,9 +1,7 @@
 #  Basic Credit Card Processor
 -----
 ##  An overview of the design
-The design is very simple due to the constraints presented.
-No need to suss out edge cases, or look for tricks. It's a very simple programming test.
-This led to the decision to contain all the functions and classes in the myprogram.php file rather than seperating them as per best practices. 
+The design is very simple due to the constraints presented. No need to suss out edge cases, or look for tricks. It's a very simple programming test. This led to the decision to contain all the functions and classes in the myprogram.php file rather than seperating them as per best practices. 
 
 The script was constrained to run using a terminal and due to this there is no default filename specified or an echo to alert the user when a filename is not provided.
 The script does ensure that the provided filename is actually an existing text file that can be processed, line by line.
@@ -13,13 +11,13 @@ The program checks the first argument for the type of command the user is trying
 
 The program allows for 3 types of commands: Add, Charge, and Credit.
 
-For Add, the program uses the Luhn 10 validator to check whether or not the credit card being initialized is a valid entry and if it is not returns the string "error". Otherwise a card object is initialized with a balance of $0. It should be noted that this design follows the constraint that a single name will only be used once to add a card, and thus a key-value pair data structure is used. It should be noted that the number has to be input as a string for the Luhn 10 validator.
+1.  For Add, the program uses the Luhn 10 validator to check whether or not the credit card being initialized is a valid entry and if it is not returns the string "error". Otherwise a card object is initialized with a balance of $0. It should be noted that this design follows the constraint that a single name will only be used once to add a card, and thus a key-value pair data structure is used. It should be noted that the number has to be input as a string for the Luhn 10 validator.
 
 To allow for multiple cards under a user, a multidimensional array would be appropriate where the next level is the card number ($user[name][cardnumber] => card Object). This would allow for duplicate card numbers but would not allow for users to have the same name (hopefully there is only 1 Tom).
 
-For Charge, the program will increase the balance of the card belonging to the specified user as long as the credit card number was a valid per Luhn 10 and that the amount being charged would not put the user over their credit limit (no validation of the credit card number is done, a good idea to require that information be passed and validated).
+2. For Charge, the program will increase the balance of the card belonging to the specified user as long as the credit card number was a valid per Luhn 10 and that the amount being charged would not put the user over their credit limit (no validation of the credit card number is done, a good idea to require that information be passed and validated).
 
-For Credit, the program will decrease the balance of the card belonging to the specified user as long as the credit card number was a valid per Luhn 10 and it is credited even if the balance would drop below $0 i.e a negative balance is allowed.
+3. For Credit, the program will decrease the balance of the card belonging to the specified user as long as the credit card number was a valid per Luhn 10 and it is credited even if the balance would drop below $0 i.e a negative balance is allowed.
 
 After processing all of the input, the program will close the open filestream and send the generated array of users and their card objects to a summary generator function. The function alphabetically sorts the array of users and then starts to generate a string using the given format.
 
