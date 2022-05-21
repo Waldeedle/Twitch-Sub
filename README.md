@@ -40,7 +40,10 @@ After the card holder name, a space delimiter is placed followed by the the appr
 delimited by spaces.
 
 For the command Add, the arguments are: a credit card number (up to 19 characters) and a credit limit for the card. 
-
+1. Add:
+```
+Add NAME CARD_NUMBER AMOUNT
+```
 2. Charge:
 ```
 Charge NAME AMOUNT
